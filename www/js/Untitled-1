@@ -1,0 +1,64 @@
+
+
+async function getBase64Image(url) {
+  return new Promise(function(resolve, reject) {
+  
+    var img = new Image();
+    // To prevent: "Uncaught SecurityError: Failed to execute 'toDataURL' on 'HTMLCanvasElement': Tainted canvases may not be exported."
+    img.crossOrigin = "Anonymous"; 
+    img.onload = function() {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      var dataURL = canvas.toDataURL("image/png");
+      resolve(dataURL);
+    };  
+    img.src = url;   
+  });
+   
+};
+
+
+ 
+
+function drawTable1(doc,startX,startY,showHead,cols,rows,colStyle,rowStyle){
+        doc.autoTable(cols, rows,
+            {
+            startX:startX,
+            startY: startY,
+            theme: 'grid', 
+            tableWidth: 'wrap', 
+            cellWidth: 'wrap', 
+            showHead: showHead,
+            width:50, 
+            tableLineColor: 200, 
+            tableLineWidth: 1, 
+            styles: {overflow: 'linebreak', cellWidth: 'auto'}, 
+            headStyles: {
+                theme: 'grid',
+
+            },
+            columnStyles:colStyle,
+            rowStyles: rowStyle
+            }
+        )  
+    } 
+
+var cols = ['1','2']
+var rows =  [['123','456']]
+
+            var doc = new jsPDF('landscape','mm','A4') 
+var colStyle = {
+                0:{cellWidth: 50,fillColor: [220,220,220]},
+                1:{cellWidth: 100} 
+            }
+            var rowStyle = {0:{rowHeight: 25}}
+            var dataURL = await getBase64Image("./img/autodesk-logo.png");
+        doc.addImage(dataURL, 'PNG', 10, 10, 50, 10); 
+
+            drawTable1(doc,200,50,true,cols,rows,{},{})
+            doc.textWithLink('ddasd',10,10,{url:'http://www.baidu.com'})
+            doc.save('aa.pdf')
+
