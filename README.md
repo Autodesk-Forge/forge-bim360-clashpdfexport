@@ -60,9 +60,9 @@ The method [getBreakdownData](./server/analyze.js) iterates each clash instances
 ## Prerequisites
 1. **BIM 360 Account**: must be Account Admin to add the app integration, or invited by admin of BIM admin. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). 
 2. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). Get _Forge client id_, _Forge client secret_ and _Forge callback url_ and input them to [config.js](./server/config.js)
-3. **Model Coordination** 
-3. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
-4. **JavaScript** basic knowledge with **jQuery** and **Bootstrap**
+3. Create some [modelsets of Model Coordination](https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Model-Coordination/files/GUID-38CC3A1C-92FF-4682-847F-9CFAFCC4CCCE-html.html) in BIM 360. 
+4. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
+5. **JavaScript** basic knowledge with **jQuery** and **Bootstrap**
 
 ## Running locally
 Clone this project or download it. It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
