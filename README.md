@@ -1,4 +1,4 @@
-# BIM 360 Model Coorrdination API Sample - PDF Exporter of Clash 
+# BIM 360 Model Coordination API Sample - PDF Exporter of Clash 
 
 [![node](https://img.shields.io/badge/nodejs-6.11.1-yellow.svg)](https://nodejs.org)
 [![npm](https://img.shields.io/badge/npm-3.10.10-green.svg)](https://www.npmjs.com/)
@@ -18,7 +18,7 @@
 
 
 ## Description
-This repository demonstrates advanced viewing of clash raw data by Model Coordination API and demos exporting a PDF reports on the clashes the user is interested in. 
+This repository demonstrates advanced viewing of clash raw data by Model Coordination API and demos exporting a PDF report on the clashes the user is interested in. 
  
 ## Thumbnail
 
@@ -30,27 +30,28 @@ This repository demonstrates advanced viewing of clash raw data by Model Coordin
 
 ## Demonstrations
 
-1. After loging in, on top left of navigation panel, select one hub, then select one project. 
-2. After selecting one projet, the active modelsets in this activeproject will be listed.
-3. Click one modelset, all documents in the modelset will be grouped in the dropdown list of **Clash Breakdown by Element** . All documents of this modelset will also be loaded in Forge viewer
-4. After all documents are loaded in Forge Viewer, select one document from dropdown list, the clashes by document elements will be listed. Select one clash or group of clashes, the corresponding clashes will be highlighted in Forge viewer. 
-5. Tick some clashes, click **Export PDF**. After a while, a report will be generated. It contains overview of the modelset and information of each clash, including a screenshot. Note: do not touch Forge Viewer while exporting is running because the code will take snapshot of each clash.
+1. After logging in, on top left of the navigation panel, select one hub, then select one project. 
+2. After selecting one project, the active modelsets in this activeproject will be listed.
+3. Click one modelset, all documents in the modelset will be grouped in the dropdown list of **Clash Breakdown by Element** . All the documents of this modelset will also be loaded in the Forge viewer
+4. After all documents are loaded in the Forge Viewer, select one document from dropdown list, the clashes by document elements will be listed. Select one clash or group of clashes, the corresponding clashes will be highlighted in the Forge viewer. 
+5. Tick some clashes, click **Export PDF**. After a while, a report will be generated. It contains an overview of the modelset and information of each clash, including a screenshot. 
+*Note: do not touch Forge Viewer while exporting is running because the code will take snapshot of each clash.*
  
-Watch [this video](https://youtu.be/eb-yXJ9LjIw) on how to play this demo.
+Watch [this video](https://youtu.be/eb-yXJ9LjIw) to learn how to use this demo.
 
 ## Technology Architecture
 
-The sample firstly downloads the model set data and clash data of the selected project. 
+The sample first downloads the model set data and clash data of the selected project. 
 
  <p align="center"><img src="./help/workflow.png" width="600"></p>  
 
 The relationship of the data are clash mapping, please refer to the other sample [Clash View Basic](https://github.com/xiaodongliang/bim360-mcapi-node-clashview-basic.sample) 
 
-Based on the relationship, the code analyzes the data to build the mapping among clash document, version URN and viewerable guid etc. The mapping is saved to **docsMap.json**
+Based on the relationship, the code analyzes the data to build the mapping among the clash document, version URN and viewable guid etc. The mapping is saved to **docsMap.json**
 
  <p align="center"><img src="./help/docmap.png" width="400"></p>   
 
-The method [getBreakdownData](./server/analyze.js) iterates each clash instances. For one element (lvid) of one clash, the method dumps all clashes that this element (lvid) is involved, and groups them in document.
+The method [getBreakdownData](./server/analyze.js) iterates each clash instances. For one element (lvid) of one clash, the method dumps all clashes that this element (lvid) is involved, and groups them in the document.
 
  <p align="center"><img src="./help/breakdown.png" width="800"></p>  
 
@@ -87,9 +88,9 @@ Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy sa
 
 # Further Reading
 - [Model Coordination API](https://dev.forge.autodesk.com/en/docs/bim360/v1/tutorials/model-coordination/?sha=6092_51)  
-- [BIM 360 API](https://developer.autodesk.com/en/docs/bim360/v1/overview/) and [App Provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps)
-- [Data Management API](https://developer.autodesk.com/en/docs/data/v2/overview/)
-- [Viewer](https://developer.autodesk.com/en/docs/viewer/v7)
+- [BIM 360 API](https://forge.autodesk.com/en/docs/bim360/v1/overview/) and [App Provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps)
+- [Data Management API](https://forge.autodesk.com/en/docs/data/v2/overview/)
+- [Viewer](https://forge.autodesk.com/en/docs/viewer/v7)
  
 
 Tutorials:
