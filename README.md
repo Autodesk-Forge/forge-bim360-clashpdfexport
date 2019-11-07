@@ -18,7 +18,8 @@
 
 
 ## Description
-This repository demonstrates advanced viewing of clash raw data by Model Coordination API and demos exporting a PDF report on the clashes the user is interested in. 
+This repository demonstrates advanced viewing of clash raw data by Model Coordination API and demos exporting a PDF report on the clashes the user is interested in. To work with the sample, firstly upload some source modesl manually to BIM 360 folder, or by other tool such as [BIM 360 Model Coordination Unit Test in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/blob/master/test_04_CreateModelSet.js) and create model set in Model Coordination module with this folder. The demo source model files can be found at [BIM 360 Model Coorination API Unit Test
+ in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/tree/master/Source%20Files). It includes two versions of models set.
  
 ## Thumbnail
 
