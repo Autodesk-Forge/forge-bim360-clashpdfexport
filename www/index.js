@@ -91,6 +91,7 @@ function delegateModelsetSelection(){
         $('#clashviewSpinner').css({ display: "block" })
         $('#forgeSpinner').css({ display: "block" })
 
+        global_clashBreakdownView.reset()
         //refresh clash data
         let r = await global_msSet.refreshOneModelset(mc_containter_id,ms_id,ms_v_id) 
         if(r)
