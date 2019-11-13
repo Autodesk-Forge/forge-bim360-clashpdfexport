@@ -112,6 +112,10 @@ function delegateModelsetSelection(){
 
 function delegateBreakdownModelChange(){
   $(document).on('click', '#models_list .dropdown-item', function(e) {
+    if(global_msSet._docsMap.length> Object.keys(global_forgeViewer._clashDocToModel).length){
+      alert('not all models are loaded in viewer. try after a moment!')
+      return
+    } 
     const docName = $(this).html() 
     $('#models_dropdown_title').html(docName);
     global_clashBreakdownView.produceBreakdownView(docName)
