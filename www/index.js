@@ -91,6 +91,7 @@ function delegateModelsetSelection(){
         $('#clashviewSpinner').css({ display: "block" })
         $('#forgeSpinner').css({ display: "block" })
 
+        global_clashBreakdownView.reset()
         //refresh clash data
         let r = await global_msSet.refreshOneModelset(mc_containter_id,ms_id,ms_v_id) 
         if(r)
@@ -111,6 +112,10 @@ function delegateModelsetSelection(){
 
 function delegateBreakdownModelChange(){
   $(document).on('click', '#models_list .dropdown-item', function(e) {
+    if(global_msSet._docsMap.length> Object.keys(global_forgeViewer._clashDocToModel).length){
+      alert('not all models are loaded in viewer. try after a moment!')
+      return
+    } 
     const docName = $(this).html() 
     $('#models_dropdown_title').html(docName);
     global_clashBreakdownView.produceBreakdownView(docName)

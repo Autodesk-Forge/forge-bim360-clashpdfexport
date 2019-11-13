@@ -4,15 +4,18 @@ class ClashBreakdownView {
         this._breakdownData = null
     }
 
+    async reset(){
+        let breakdownTable = $('#breakdownTree').jstree(true)
+        if(breakdownTable){
+            $('#breakdownTree').jstree(true).settings.core.data = null;
+            $('#breakdownTree').jstree(true).refresh();
+        } 
+        this._breakdownData = null
+    }
     async initBreakdownList(mc_containter_id,ms_id, ms_v_id) {
 
-        try{ 
-            let breakdownTable = $('#breakdownTree').jstree(true)
-            if(breakdownTable){
-                $('#breakdownTree').jstree(true).settings.core.data = {};
-                $('#breakdownTree').jstree(true).refresh();
-            } 
-
+        try{   
+            this.reset()
             this._breakdownData = await this.getBreakdownData(mc_containter_id,ms_id, ms_v_id) 
             this._docsMap = global_msSet._docsMap
 
@@ -186,6 +189,7 @@ class ClashBreakdownView {
                 }   
             } 
         });
+ 
     }
 }
 
