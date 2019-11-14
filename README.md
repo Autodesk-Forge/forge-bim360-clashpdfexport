@@ -27,7 +27,7 @@ This repository demonstrates advanced viewing of clash raw data by Model Coordin
 ## Live version
 https://bim360-clash-pdf-exporter.herokuapp.com/
 
-note: provision the app key with test BIM account firstly. click **Config** to get detail information)
+Note: provision the app key with test BIM account firstly. click **Config** to get detail information)
 
 ## Demonstrations
 
@@ -60,9 +60,9 @@ The method [getBreakdownData](./server/analyze.js) iterates each clash instances
 # Setup
 
 ## Prerequisites
-1. To work with the sample, firstly upload some source modesl manually to BIM 360 folder, or by other tool such as [BIM 360 Model Coordination Unit Test in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/blob/master/test_04_CreateModelSet.js) and create model set in Model Coordination module with this folder. The demo source model files can be found at [BIM 360 Model Coorination API Unit Test
+1. To work with the sample, first upload source models manually to a BIM 360 folder, or by other tool such as [BIM 360 Model Coordination Unit Test in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/blob/master/test_04_CreateModelSet.js) and create a model set in Model Coordination module with this folder. The demo source models files can be found at [BIM 360 Model Coorination API Unit Test
  in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/tree/master/Source%20Files). It includes two versions of models set.
-2. **BIM 360 Account**: must be Account Admin to add the app integration, or invited by admin of BIM admin. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). 
+2. **BIM 360 Account**: must be an Account Admin to add the app custom integration, or invited by an admin of a BIM 360 Account. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). 
 3. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). Get _Forge client id_, _Forge client secret_ and _Forge callback url_ and input them to [config.js](./server/config.js)
 4. Create some [modelsets of Model Coordination](https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Model-Coordination/files/GUID-38CC3A1C-92FF-4682-847F-9CFAFCC4CCCE-html.html) in BIM 360. 
 5. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
