@@ -85,8 +85,7 @@ class ClashBreakdownView {
 
                 for (let i in breakview_thismodel[Lvid][Rdid]) {
 
-                    var Rvid = breakview_thismodel[Lvid][Rdid][i] 
-
+                    var Rvid = breakview_thismodel[Lvid][Rdid][i]  
                     var rightObjName = global_forgeViewer._clashDocToModel[Rdid].model.getInstanceTree().getNodeName(Rvid)
                     //var rightObjName = <also feasible from Index Result of MC API>
 

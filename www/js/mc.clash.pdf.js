@@ -108,8 +108,17 @@ class ClashPDF {
                 var Lvid = eachItem.Lvid
                 var Rvid = eachItem.Rvid
 
+                //breakdown view checks element of each model from the source raw clash instances data. 
+                //source data only has one direction pair of data. e.g. 
+                //ldid = modelA, rdid=modelB, lvid=modelA_elementA, rvid=modelB_elementB
+                //while breakdown view clarifies as :
+                // modelA_elementA: <elements in modelA which clash with this element>
+                // modelB_elementB: <elements in modelB which clash with this element>
+                // the Ldid,Rdid,Lvid,Rvid might be reversed agaist the source data
+                // so, the filter will checks both possibilities.
                 let filter = clashInsJsonObj.instances.filter(d=>{
-                    return d.ldid == Ldid && d.rdid == Rdid && d.lvid==Lvid&& d.rvid==Rvid
+                    return (d.ldid == Ldid && d.rdid == Rdid && d.lvid==Lvid&& d.rvid==Rvid)||
+                            (d.ldid == Rdid && d.rdid == Ldid && d.lvid== Rvid && d.rvid==Lvid)
                 })
                 const cid = filter[0].cid
                 filter = clashJsonObj.clashes.filter(d=>{

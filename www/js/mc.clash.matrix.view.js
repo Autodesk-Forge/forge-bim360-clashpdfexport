@@ -10,6 +10,8 @@ class ClashMatrixView {
   async produceClashMatrixTable(mc_containter_id, ms_id, ms_v_id) {
 
     try {
+      this._matrixView.rows = []
+
       const res = await this.getMatrixData(mc_containter_id, ms_id, ms_v_id)
       const matrixView = res.matrixView
       //const ignoredAssinedClash = res.ignoredAssinedClash
