@@ -89,19 +89,19 @@ To deploy this application to Heroku, the **Callback URL** for Forge must use yo
 Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy samples to Heroku.
  
 
-# Further Reading 
+## Further Reading
+- [Model Coordination API](https://forge.autodesk.com/en/docs/bim360/v1/tutorials/model-coordination/)
+- [Model Coordination API SDK](https://www.npmjs.com/package/autodesk.forge.designautomation) 
 - [BIM 360 API](https://forge.autodesk.com/en/docs/bim360/v1/overview/) and [App Provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps)
 - [Data Management API](https://forge.autodesk.com/en/docs/data/v2/overview/)
 - [Viewer](https://forge.autodesk.com/en/docs/viewer/v7)
- - [Model Coordination API](https://dev.forge.autodesk.com/en/docs/bim360/v1/tutorials/model-coordination/?sha=6092_51)  
-- [Model Coordination API SDK](https://www.npmjs.com/package/autodesk.forge.designautomation)    
 
-Tutorials:
-
-- [Model Coordination API Document](https://dev.forge.autodesk.com/en/docs/bim360/v1/tutorials/model-coordination/mc-concept-modelset/?sha=6092_51) 
+## Tutorials
+- [Model Coordination API Document](https://forge.autodesk.com/en/docs/bim360/v1/tutorials/model-coordination)
+- [Model Coordination API .NET Tutorials](TODO)
 - [View BIM 360 Models](http://learnforge.autodesk.io/#/tutorials/viewhubmodels)
 
-Blogs:
+## Blogs:
 
 - [Forge Blog](https://forge.autodesk.com/categories/bim-360-api)
 - [Field of View](https://fieldofviewblog.wordpress.com/), a BIM focused blog
