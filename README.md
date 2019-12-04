@@ -1,16 +1,15 @@
-# BIM 360 Model Coordination API Sample - PDF Exporter of Clash 
+# BIM 360 Model Coordination - PDF Clash Export
 
 [![node](https://img.shields.io/badge/nodejs-6.11.1-yellow.svg)](https://nodejs.org)
 [![npm](https://img.shields.io/badge/npm-3.10.10-green.svg)](https://www.npmjs.com/)
-[![visual code](https://img.shields.io/badge/visual%20code-1.28.2-orange.svg)](https://code.visualstudio.com)
 
 [![oAuth2](https://img.shields.io/badge/oAuth2-v1-green.svg)](https://forge.autodesk.com/en/docs/oauth/v2/overview/)
 [![Data-Management](https://img.shields.io/badge/Data%20Management-v1-green.svg)](https://forge.autodesk.com/en/docs/data/v2/developers_guide/overview/)
 [![Viewer](https://img.shields.io/badge/Viewer-v7-green.svg)](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/overview/)
 [![BIM-360](https://img.shields.io/badge/BIM%20360-v1-green.svg)](https://forge.autodesk.com/en/docs/bim360/v1/overview/introduction/) 
 
-[![ModelSetAPI](https://img.shields.io/badge/ModelSetAPI-3.0.65-orange)](https://www.npmjs.com/package/forge-bim360-modelcoordination-modelset)
-[![ClashAPI](https://img.shields.io/badge/ClashAPI-3.3.27-yellowgreen)](https://www.npmjs.com/package/forge-bim360-modelcoordination-clash)
+[![BIM 360 Model Set](https://img.shields.io/badge/BIM%20360%20Model%20Set-3.0.65-orange)](https://www.npmjs.com/package/forge-bim360-modelcoordination-modelset)
+[![BIM 360 Clash](https://img.shields.io/badge/BIM%20360%20Clash-3.3.27-yellowgreen)](https://www.npmjs.com/package/forge-bim360-modelcoordination-clash)
 
 [![License](http://img.shields.io/:license-mit-red.svg)](http://opensource.org/licenses/MIT)
 [![Level](https://img.shields.io/badge/Level-Intermediate-blue.svg)](http://developer.autodesk.com/)
@@ -21,15 +20,18 @@ This repository demonstrates advanced viewing of clash raw data by Model Coordin
  
 ## Thumbnail
 
-<p align="center"><img src="./help/main.png" width="1000"></p>
-<p align="center"><img src="./help/pdf.png" width="1000"></p>
+![thumbnail](/thumbnail.png)
 
 ## Live version
-https://bim360-clash-pdf-exporter.herokuapp.com/
+
+[bim360-clash-pdf-exporter.herokuapp.com](https://bim360-clash-pdf-exporter.herokuapp.com)
 
 Note: provision the app key with test BIM account firstly. click **Config** to get detail information)
 
 ## Demonstrations
+
+To work with the sample, first upload source models manually to a BIM 360 folder, or by other tool such as [BIM 360 Model Coordination Unit Test in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/blob/master/test_04_CreateModelSet.js) and create a model set in Model Coordination module with this folder. The demo source models files can be found at [BIM 360 Model Coorination API Unit Test
+ in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/tree/master/Source%20Files). It includes two versions of models set.
 
 1. After logging in, on top left of the navigation panel, select one hub, then select one project. 
 2. After selecting one project, the active modelsets in this activeproject will be listed.
@@ -44,47 +46,58 @@ Watch [this video](https://youtu.be/eb-yXJ9LjIw) to learn how to use this demo.
 
 The sample first downloads the model set data and clash data of the selected project. 
 
- <p align="center"><img src="./help/workflow.png" width="600"></p>  
+![Workflow](/help/workflow.png)
 
-The relationship of the data are clash mapping, please refer to the other sample [Clash View Basic](https://github.com/xiaodongliang/bim360-mcapi-node-clashview-basic.sample) 
+The relationship of the data are clash mapping, please refer to the other sample [Clash View Basic](https://github.com/Autodesk-Forge/forge-bim360-clashview) 
 
 Based on the relationship, the code analyzes the data to build the mapping among the clash document, version URN and viewable guid etc. The mapping is saved to **docsMap.json**
 
- <p align="center"><img src="./help/docmap.png" width="400"></p>   
+![Document Map](/help/docmap.png)
 
 The method [getBreakdownData](./server/analyze.js) iterates each clash instances. For one element (lvid) of one clash, the method dumps all clashes that this element (lvid) is involved, and groups them in the document.
 
- <p align="center"><img src="./help/breakdown.png" width="800"></p>  
-
+![Document Map](/help/breakdown.png)
 
 # Setup
 
 ## Prerequisites
-1. To work with the sample, first upload source models manually to a BIM 360 folder, or by other tool such as [BIM 360 Model Coordination Unit Test in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/blob/master/test_04_CreateModelSet.js) and create a model set in Model Coordination module with this folder. The demo source models files can be found at [BIM 360 Model Coorination API Unit Test
- in Node.js](https://github.com/xiaodongliang/bim360-mcapi-node-unit.test/tree/master/Source%20Files). It includes two versions of models set.
-2. **BIM 360 Account**: must be an Account Admin to add the app custom integration, or invited by an admin of a BIM 360 Account. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). 
-3. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). Get _Forge client id_, _Forge client secret_ and _Forge callback url_ and input them to [config.js](./server/config.js)
-4. Create some [modelsets of Model Coordination](https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Model-Coordination/files/GUID-38CC3A1C-92FF-4682-847F-9CFAFCC4CCCE-html.html) in BIM 360. 
-5. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
-6. **JavaScript** basic knowledge with **jQuery** and **Bootstrap**
+
+1. **BIM 360 Account**: must be an Account Admin to add the app custom integration, or invited by an admin of a BIM 360 Account. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). 
+2. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). Get _Forge client id_, _Forge client secret_ and _Forge callback url_ and input them to [config.js](./server/config.js)
+3. Create some [modelsets of Model Coordination](https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Model-Coordination/files/GUID-38CC3A1C-92FF-4682-847F-9CFAFCC4CCCE-html.html) in BIM 360. 
+4. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
+5. **JavaScript** basic knowledge with **jQuery** and **Bootstrap**
 
 ## Running locally
 Clone this project or download it. It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
 
-    git clone https://github.com/xiaodongliang/bim360-mcapi-node-pdf.exporter.sample
+    git clone https://github.com/autodesk-forge/forge-bim360-clashpdfexport
 
 Open the project folder in **Visual Studio Code**. Install the required packages, set the environment variables with your client ID & secret and finally start it. Via command line, navigate to the folder where this repository was cloned and use the following:
 
-    npm install 
-    node start.js
+Mac OSX/Linux (Terminal)
 
-Open the browser: [http://localhost:3000](http://localhost:3000).  
+    npm install
+    export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+    export FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+    export FORGE_CALLBACK_URL=<<YOUR CALLBACK URL>>
+    npm start
+
+Windows (use **Node.js command line** from Start menu)
+
+    npm install
+    set FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+    set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+    set FORGE_CALLBACK_URL=<<YOUR CALLBACK URL>>
+    npm start
+
+Open the browser: [http://localhost:3000](http://localhost:3000).
 
 ## Deployment
 
 To deploy this application to Heroku, the **Callback URL** for Forge must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret and Callback URL for Forge.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/xiaodongliang/bim360-mcapi-node-pdf.exporter.sample)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy samples to Heroku.
  
@@ -98,7 +111,6 @@ Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy sa
 
 ## Tutorials
 - [Model Coordination API Document](https://forge.autodesk.com/en/docs/bim360/v1/tutorials/model-coordination)
-- [Model Coordination API .NET Tutorials](TODO)
 - [View BIM 360 Models](http://learnforge.autodesk.io/#/tutorials/viewhubmodels)
 
 ## Blogs:
