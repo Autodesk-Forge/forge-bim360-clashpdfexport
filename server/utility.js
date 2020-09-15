@@ -28,15 +28,16 @@ const pako = require('pako')
 const statusFolder = './Status/'
 
 module.exports = { 
-    clearFolder:clearFolder,
-    saveJsonObj:saveJsonObj,
-    downloadResources:downloadResources,
-    readLinesFile:readLinesFile,
-    randomValueBase64:randomValueBase64,
-    storeStatus:storeStatus,
-    readStatus:readStatus,
-    deleteStatus:deleteStatus,
-    compressStream:compressStream 
+    clearFolder,
+    saveJsonObj,
+    downloadResources,
+    readLinesFile,
+    randomValueBase64,
+    storeStatus,
+    readStatus,
+    deleteStatus,
+    compressStream,
+    flatDeep 
 }
 
 async function clearFolder(folder){
@@ -143,3 +144,9 @@ function deleteStatus(jobId){
     const inputStr = JSON.stringify(inputJson)
     return pako.deflate(inputStr)
  }
+
+
+function flatDeep(arr, d = 1) {
+    return d > 0 ? arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? flatDeep(val, d - 1) : val), [])
+                 : arr.slice();
+};

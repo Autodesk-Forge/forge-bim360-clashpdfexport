@@ -165,7 +165,7 @@ async function buildDocsMap(folder) {
     oneItem.lineageUrn = successDocs[i].documentLineage.lineageUrn
 
     const buff = new Buffer.from(successDocs[i].bubbleUrn);
-    oneItem.urn = 'urn:' + buff.toString('base64').replace('/', '_').trim('=')
+    oneItem.urn = 'urn:' + buff.toString('base64').replace('/', '_').trim('=').split('=').join('')
    
     //map clash doc id (in number) with the document 
     let filter = clashDocumentJson.filter(
