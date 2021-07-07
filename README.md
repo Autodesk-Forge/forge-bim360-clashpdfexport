@@ -19,7 +19,7 @@
 This repository demonstrates advanced viewing of clash raw data by Model Coordination API and demos exporting a PDF report on the clashes the user is interested in. 
  
 ## Thumbnail
-
+![main](/main.png)
 ![thumbnail](/thumbnail.png)
 
 ## Live version
