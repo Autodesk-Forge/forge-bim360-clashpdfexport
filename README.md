@@ -1,3 +1,6 @@
+# DEPRECATED
+This repository has been deprecated and migrated tohttps://github.com/autodesk-platform-services/aps-clash-data-export-pdf
+
 # BIM 360 Model Coordination - PDF Clash Export
 
 [![node](https://img.shields.io/badge/nodejs-v10+-yellow.svg)](https://nodejs.org)
